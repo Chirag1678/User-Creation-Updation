@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Update Address</title></head>
+<body>
+First Name: <span th:text="${user.firstName}"></span><br/>
+Last Name: <span th:text="${user.lastName}"></span><br/>
+Email: <span th:text="${user.email}"></span><br/>
+Phone: <span th:text="${user.phone}"></span>
+<form th:action="@{/updateAddress}" method="post">
+    City: <input type="text" name="city" required><br>
+    Country: <input type="text" name="country" required><br>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
