@@ -6,9 +6,13 @@ First Name: <span th:text="${user.firstName}"></span><br/>
 Last Name: <span th:text="${user.lastName}"></span><br/>
 Email: <span th:text="${user.email}"></span><br/>
 Phone: <span th:text="${user.phone}"></span>
-<form th:action="@{/updateAddress}" method="post">
-    City: <input type="text" name="city" required><br>
-    Country: <input type="text" name="country" required><br>
+<form th:action="@{/updateAddress}" th:object="${user}" method="post">
+    <input type="hidden" th:field="*{firstName}">
+    <input type="hidden" th:field="*{lastName}">
+    <input type="hidden" th:field="*{email}">
+    <input type="hidden" th:field="*{phone}">
+    City: <input type="text" th:field="*{city}" required><br>
+    Country: <input type="text" th:field="*{country}" required><br>
     <button type="submit">Submit</button>
 </form>
 </body>
